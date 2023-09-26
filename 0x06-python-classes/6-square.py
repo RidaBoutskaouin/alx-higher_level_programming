@@ -36,8 +36,7 @@ class Square:
     def position(self, value):
         """Setter method"""
         if (
-            type(value) is not tuple
-            or len(value) != 2
+            len(value) != 2
             or isinstance(value[0], int) is not True
             or isinstance(value[1], int) is not True
             or value[0] < 0
