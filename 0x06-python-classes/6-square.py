@@ -1,64 +1,61 @@
 #!/usr/bin/python3
-"""creates a Square class"""
 
 
 class Square:
-    """class that defines a square"""
+    """Square class with private attribute size"""
 
     def __init__(self, size=0, position=(0, 0)):
-        """
-        init of a square class
-        Args:
-            size (int): size of Square
-        """
+        """Initialize data"""
         self.__size = size
         self.__position = position
 
     def area(self):
-        """returns the area of a square"""
+        """Return area of square"""
         return self.__size**2
 
     @property
     def size(self):
-        """getter for size"""
+        """Getter method"""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """setter for size"""
+        """Setter method"""
         if isinstance(value, int) is not True:
             raise TypeError("size must be an integer")
-        elif value < 0:
-            raise TypeError("size must be >= 0")
+        if value < 0:
+            raise ValueError("size must be positive")
         self.__size = value
-
-    def my_print(self):
-        """prints a square"""
-        if self.__size == 0:
-            print()
-            return
-        for i in range(self.__size):
-            print("#" * self.__size)
-
-        for j in range(self.__position[1]):
-            print()
-        for k in range(self.__size):
-            print(" " * self.__position[0], end="")
-            print("#" * self.__size)
-            print()
 
     @property
     def position(self):
-        """getter for position"""
+        """Getter method"""
         return self.__position
 
     @position.setter
     def position(self, value):
-        """setter for position"""
-        if isinstance(value, tuple) is not True or len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        elif isinstance(value[0], int) is not True or value[0] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        elif isinstance(value[1], int) is not True or value[1] < 0:
+        """Setter method"""
+        if (
+            type(value) is not tuple
+            or len(value) != 2
+            or isinstance(value[0], int) is not True
+            or isinstance(value[1], int) is not True
+            or value[0] < 0
+            or value[1] < 0
+        ):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
+
+    def my_print(self):
+        """Print square"""
+        if self.__size == 0:
+            print()
+            return
+        for i in range(self.__position[1]):
+            print()
+        for i in range(self.__size):
+            for j in range(self.__position[0]):
+                print(" ", end="")
+            for j in range(self.__size):
+                print("#", end="")
+            print()
