@@ -2,7 +2,7 @@
 
 """This module contains a function that adds two integers"""
 
-
+>>> add_integer = __import__('0-add_integer').add_integer
 >>> add_integer(1, 2)
 3
 >>> add_integer(100, -2)
@@ -25,3 +25,8 @@ Traceback (most recent call last):
     File "<stdin>", line 7, in add_integer
 TypeError: a must be an integer
 
+>>> add_integer(float('inf'), 4)
+Traceback (most recent call last):
+	File "<stdin>", line 1, in <module>
+	File "<stdin>", line 21, in add_integer
+OverflowError: cannot convert float infinity to integer
