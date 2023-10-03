@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Defines a locked class."""
-import sys
 
 
 class LockedClass:
