@@ -2,11 +2,11 @@
 """Fetches https://intranet.hbtn.io/status"""
 
 if __name__ == "__main__":
-    import urllib.request
-
-    with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
-        html = response.read()
+    from urllib.request import Request, urlopen
+    req = Request("https://intranet.hbtn.io/status")
+    with urlopen(req) as res:
+        page = res.read()
         print("Body response:")
-        print("\t- type: {}".format(type(html)))
-        print("\t- content: {}".format(html))
-        print("\t- utf8 content: {}".format(html.decode('utf-8')))
+        print("\t- type: {}".format(type(page)))
+        print("\t- content: {}".format(page))
+        print("\t- utf8 content: {}".format(page.decode("utf-8")))
