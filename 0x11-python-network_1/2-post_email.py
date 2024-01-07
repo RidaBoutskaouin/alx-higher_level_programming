@@ -4,6 +4,7 @@ with the email as a parameter, and displays the body of the response (decoded
 in utf-8)."""
 
 if __name__ == "__main__":
+    """Don't execute if imported"""
     from sys import argv
     from urllib.request import Request, urlopen
     from urllib.parse import urlencode
