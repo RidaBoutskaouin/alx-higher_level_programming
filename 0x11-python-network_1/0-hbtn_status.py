@@ -3,7 +3,7 @@
 
 if __name__ == "__main__":
     from urllib.request import Request, urlopen
-    req = Request("https://intranet.hbtn.io/status")
+    req = Request("https://alx-intranet.hbtn.io/status")
     with urlopen(req) as res:
         page = res.read()
         print("Body response:")
